@@ -17,8 +17,9 @@ namespace H1W2D2RPG
             {
                 property.SetValue(this, Character.random.Next(3, 19));
                 Console.WriteLine(property.Name + ": " + property.GetValue(this));
+              
             }
-
+            Console.WriteLine("");
         }
 
         public void ShowStats()
@@ -27,6 +28,30 @@ namespace H1W2D2RPG
             {
                 Console.WriteLine(property.Name + ": " + property.GetValue(this));
             }
+        }
+
+        public void ReRoll()
+        {
+            Random random = new Random();
+
+            while (true)
+            {
+                Console.WriteLine("Press R to reroll: ");
+                Console.ReadLine();
+
+                int numThrows = 3;
+
+
+                for (int i = 0; i < numThrows; i++)
+                {
+                    int dice_number = random.Next(1, 7);
+                    GetRolled();
+
+                }
+            }
+         
+
+            
         }
     }
 }

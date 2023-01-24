@@ -11,3 +11,4 @@ firstChar.Stats.Dexterity = 1;
 
 
 Console.WriteLine(firstChar.Name);
+firstChar.Stats.ReRoll();
