@@ -4,17 +4,19 @@
     {
         //Because the method that uses this array is static, we also make the array static.
         private static string[] characterClass = { "Warrior", "Wizard", "Priest", "Rouge", "Summoner", "Druid", "Ranger" };
-        private static Random random = new Random();
+        public static Random random = new Random();
 
         public string Name { get; set; } = "NoNameYet";
         public string CharacterClass { get; set; }
         public DateTime Birthday { get; set; }
+        public Stats Stats { get; set; } = new();
 
         public Character()
         {
             GetRandomBirthday();
             Name = RandomNameGenerator(3, 8);
         }
+
 
         private string RandomNameGenerator(int v1, int v2)
         {
