@@ -19,17 +19,26 @@
         private string RandomNameGenerator(int v1, int v2)
         {
             //0-5 vowels 6-end consonant
-            char[] letters = { 'a', 'e', 'i', 'o', 'u', 'y', 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' };
+            char[] letters = { 'a', 'e', 'i', 'o', 'u', 'y', 'b', 'c', 'd', 'f', 'g', 'h', 
+                'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' };
 
             int length = random.Next(v1, v2 + 1);
-            int StartLetter = random.Next(0, letters.Length);
+            int StartLetter = random.Next(letters.Length);
             bool isVowel = StartLetter < 6 ? true : false;
             string name = letters[StartLetter].ToString().ToUpper();
             for (int i = 0; i < length; i++)
             {
-                name += letters[random.Next(0, letters.Length)];
+                if (isVowel)
+                {
+                    name += letters[random.Next(6, letters.Length)];
+                    isVowel = false;
+                }
+                else
+                {
+                    name += letters[random.Next(0, 6)];
+                    isVowel = true;
+                }
             }
-
             return name;
         }
 
@@ -51,6 +60,5 @@
 
             //return characterClass[new Random().Next(characterClass.Length)];
         }
-
     }
 }
